@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los 4 ejercicios para crecer tus piernas — MAT MOVE</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --dark: #0D2D38;
+    --dark2: #0a2530;
+    --accent: #1B8FD4;
+    --light-blue: #3AAEE8;
+    --pale: #D6E8EF;
+    --white: #FAFAFA;
+    --gray: #8AA5AE;
+    --accent-dim: rgba(26, 143, 212, 0.12);
+  }
+
+  body {
+    background: var(--dark);
+    color: var(--white);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .header {
+    background: var(--dark);
+    padding: 48px 24px 40px;
+    text-align: center;
+    border-bottom: 1px solid rgba(26, 143, 212, 0.2);
+    position: relative;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .brand {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    margin-bottom: 24px;
+  }
+
+  .header h1 {
+    font-size: clamp(26px, 6vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--white);
+    max-width: 580px;
+    margin: 0 auto 16px;
+  }
+
+  .header h1 span {
+    color: var(--light-blue);
+  }
+
+  .header p {
+    font-size: 14px;
+    color: var(--gray);
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .intro-note {
+    background: var(--dark2);
+    border-left: 2px solid var(--accent);
+    margin: 32px auto;
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    max-width: 680px;
+  }
+
+  .intro-note p {
+    font-size: 14px;
+    color: var(--pale);
+    line-height: 1.75;
+  }
+
+  .intro-note strong {
+    color: var(--white);
+  }
+
+  .exercises {
+    padding: 8px 24px 48px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .exercise-card {
+    background: var(--dark2);
+    border: 1px solid rgba(26, 143, 212, 0.15);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .exercise-card:hover {
+    border-color: rgba(26, 143, 212, 0.35);
+  }
+
+  .exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 24px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .exercise-number {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    background: var(--accent-dim);
+  }
+
+  .exercise-title-block h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 5px;
+  }
+
+  .exercise-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    background: var(--accent-dim);
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(26, 143, 212, 0.2);
+  }
+
+  .exercise-body {
+    padding: 20px 24px 24px;
+  }
+
+  .exercise-body p {
+    font-size: 14px;
+    color: var(--pale);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .exercise-body p:last-child { margin-bottom: 0; }
+
+  .tip-block {
+    background: rgba(26, 143, 212, 0.07);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 16px;
+    border: 1px solid rgba(26, 143, 212, 0.1);
+  }
+
+  .tip-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    margin-bottom: 7px;
+  }
+
+  .tip-block p {
+    font-size: 13px;
+    color: var(--pale);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .loom-block {
+    margin-top: 16px;
+  }
+
+  .loom-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    margin-bottom: 10px;
+  }
+
+  .loom-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(26, 143, 212, 0.15);
+  }
+
+  .loom-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .avoid-block {
+    background: rgba(180, 60, 60, 0.06);
+    border-left: 2px solid rgba(200, 80, 80, 0.35);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin-top: 10px;
+  }
+
+  .avoid-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(220, 120, 120, 0.8);
+    margin-bottom: 7px;
+  }
+
+  .avoid-block p {
+    font-size: 13px;
+    color: rgba(220, 180, 180, 0.65);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .progression {
+    background: var(--dark2);
+    border: 1px solid rgba(26, 143, 212, 0.15);
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin: 0 auto 40px;
+    max-width: 672px;
+  }
+
+  .progression h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .progression-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .prog-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .prog-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .prog-step p {
+    font-size: 14px;
+    color: var(--pale);
+    line-height: 1.7;
+  }
+
+  .prog-step strong {
+    color: var(--light-blue);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px 24px 48px;
+    border-top: 1px solid rgba(26, 143, 212, 0.15);
+    position: relative;
+  }
+
+  .footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .footer-brand {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    margin-bottom: 12px;
+  }
+
+  .footer p {
+    font-size: 13px;
+    color: var(--gray);
+    max-width: 380px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 480px) {
+    .intro-note { margin: 24px 16px; }
+    .exercises { padding: 8px 16px 40px; }
+    .progression { margin: 0 16px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="brand">MAT MOVE × Ana Aviña</p>
+  <h1>Los <span>4 ejercicios</span> que necesitas para crecer tus piernas desde cero</h1>
+  <p>Sin rutinas de 15 ejercicios. Sin horas en el gym. Solo lo que realmente funciona.</p>
+</div>
+
+<div class="intro-note">
+  <p>Antes de empezar: estos 4 ejercicios no son los más populares de Instagram. Son los que generan el estímulo correcto para que tu músculo tenga una razón real para crecer. <strong>La clave no está en hacer más, está en hacer esto bien.</strong></p>
+</div>
+
+<div class="exercises">
+
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <div class="exercise-number">1</div>
+      <div class="exercise-title-block">
+        <h2>Sentadilla con barra</h2>
+        <span class="exercise-tag">Cuádriceps · Glúteo · Fuerza base</span>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>La sentadilla con barra es el ejercicio rey del tren inferior. Trabaja cuádriceps, glúteos e isquiosurales al mismo tiempo y te permite mover más carga que cualquier otro ejercicio de pierna, lo que la convierte en la base de cualquier programa serio de hipertrofia.</p>
+      <p>Con la barra apoyada en los trapecios y los pies a la anchura de tus hombros, baja flexionando rodillas y caderas hasta que tus muslos queden paralelos al suelo. Mantén el pecho arriba y la espalda recta. Sube empujando desde los talones.</p>
+      <div class="tip-block">
+        <div class="tip-label">Lo más importante</div>
+        <p>Las rodillas deben seguir la dirección de tus pies durante todo el movimiento. Si se juntan al subir, no te preocupes, poco a poco los músculos de tu pierna irán teniendo más fuerza y se activarán mejor hasta dominar el movimiento.</p>
+      </div>
+      <div class="avoid-block">
+        <div class="avoid-label">Error más común</div>
+        <p>Inclinarse demasiado hacia adelante al bajar. Si el torso cae, el peso pasa a la espalda baja y sales del ejercicio. Mantén el core apretado y el pecho arriba en todo momento.</p>
+      </div>
+      <div class="loom-block">
+        <div class="loom-label">Video explicativo</div>
+        <div class="loom-wrapper">
+          <iframe src="https://www.loom.com/embed/8c71dd52ab8d4fe7873396aba374ddcb" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <div class="exercise-number">2</div>
+      <div class="exercise-title-block">
+        <h2>Hip Thrust con barra</h2>
+        <span class="exercise-tag">Glúteo mayor · Cadena posterior</span>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>Es el ejercicio más efectivo para el glúteo mayor. A diferencia de la sentadilla, el hip thrust pone al glúteo en su posición de máxima contracción, que es exactamente donde necesita trabajar para crecer.</p>
+      <p>Apoya la parte alta de tu espalda en un banco, coloca la barra sobre tus caderas con un pad para amortiguar, pies apoyados en el suelo a la anchura de tus hombros. Empuja hacia arriba hasta que tus caderas queden alineadas con tus rodillas y tu torso. Baja controlado.</p>
+      <div class="tip-block">
+        <div class="tip-label">Lo más importante</div>
+        <p>En el punto más alto, aprieta el glúteo con intención. Si no sientes la contracción ahí, el ejercicio no está llegando donde tiene que llegar.</p>
+      </div>
+      <div class="avoid-block">
+        <div class="avoid-label">Error más común</div>
+        <p>Arquear la espalda baja para subir más. Si haces eso, es tu columna trabajando, no tu glúteo. Mantén la barbilla hacia el pecho y el core activado.</p>
+      </div>
+      <div class="loom-block">
+        <div class="loom-label">Video explicativo</div>
+        <div class="loom-wrapper">
+          <iframe src="https://www.loom.com/embed/45a3b652379f458680637609f456650f" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <div class="exercise-number">3</div>
+      <div class="exercise-title-block">
+        <h2>Peso muerto</h2>
+        <span class="exercise-tag">Isquiotibiales · Glúteo · Cadena posterior</span>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>El peso muerto es uno de los movimientos más completos que existen. Trabaja toda la cadena posterior — isquiosurales, glúteos y espalda baja — con una carga que ningún otro ejercicio puede igualar.</p>
+      <p>Con la barra en el suelo frente a ti, pies a la anchura de caderas. Agáchate manteniendo la espalda recta, agarra la barra con las manos justo fuera de tus piernas. Empuja el suelo hacia abajo mientras subes la barra pegada a tus piernas. Llega arriba con caderas y rodillas extendidas. Baja controlado.</p>
+      <div class="tip-block">
+        <div class="tip-label">Lo más importante</div>
+        <p>La barra debe rozar tus piernas durante todo el movimiento. Si se aleja de tu cuerpo, tu espalda baja está absorbiendo una carga que no le corresponde.</p>
+      </div>
+      <div class="avoid-block">
+        <div class="avoid-label">Error más común</div>
+        <p>Redondear la espalda al levantar. Antes de jalar, respira profundo, aprieta el core y asegúrate de que tu espalda esté recta. Con la espalda redondeada, este ejercicio se convierte en una lesión en cámara lenta.</p>
+      </div>
+      <div class="loom-block">
+        <div class="loom-label">Video explicativo</div>
+        <div class="loom-wrapper">
+          <iframe src="https://www.loom.com/embed/71434caad30147dab6f055e062a6fcf4" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-card">
+    <div class="exercise-header">
+      <div class="exercise-number">4</div>
+      <div class="exercise-title-block">
+        <h2>RDL — Romanian Deadlift</h2>
+        <span class="exercise-tag">Isquiotibiales · Cadena posterior</span>
+      </div>
+    </div>
+    <div class="exercise-body">
+      <p>El RDL trabaja los isquiosurales en elongación, que es la posición donde más crecen. Es diferente al peso muerto convencional: aquí el movimiento sale de las caderas, no del suelo, y el enfoque es el estiramiento controlado de la parte posterior de la pierna.</p>
+      <p>De pie con barra o mancuernas frente a ti, pies a la anchura de caderas. Con las rodillas ligeramente flexionadas, empuja las caderas hacia atrás mientras bajas el peso pegado a tus piernas. Sientes el tirón en la parte de atrás de tus muslos. Sube empujando las caderas hacia adelante.</p>
+      <div class="tip-block">
+        <div class="tip-label">Lo más importante</div>
+        <p>El movimiento sale de las caderas, no de la espalda. Imagina que estás empujando una pared con las caderas hacia atrás, no que te estás doblando hacia adelante. Esa distinción lo cambia todo.</p>
+      </div>
+      <div class="avoid-block">
+        <div class="avoid-label">Error más común</div>
+        <p>Confundirlo con el peso muerto convencional y doblar demasiado las rodillas. En el RDL las rodillas casi no se flexionan — el protagonista es el estiramiento de los isquiosurales, no la carga desde el suelo.</p>
+      </div>
+      <div class="loom-block">
+        <div class="loom-label">Video explicativo</div>
+        <div class="loom-wrapper">
+          <iframe src="https://www.loom.com/embed/d75398750dba4b59b1aa80f9c4761385" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="progression">
+  <h3>¿Cómo progresas semana a semana?</h3>
+  <div class="progression-steps">
+    <div class="prog-step">
+      <div class="prog-dot"></div>
+      <p><strong>Semanas 1-2:</strong> Enfócate en la técnica. Usa un peso que te permita hacer entre 8 y 12 repeticiones sin perder la forma. Si puedes hacer más de 12 con facilidad, el peso es muy ligero.</p>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot"></div>
+      <p><strong>Semanas 3-4:</strong> Cuando ya controlas el movimiento, empieza a subir el peso progresivamente. Si completaste todas las series con buena técnica, la próxima semana sube un poco el peso.</p>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot"></div>
+      <p><strong>Siempre:</strong> El músculo crece mientras descansas, no mientras entrenas. Duerme bien, come suficiente proteína y no entrenes el mismo grupo muscular dos días seguidos.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p class="footer-brand">MAT MOVE</p>
+  <p>Esta guía es un punto de partida. Si quieres un programa diseñado exactamente para tu cuerpo, con seguimiento semanal y ajustes reales, eso es lo que hacemos.</p>
+</div>
+
+</body>
+</html>
